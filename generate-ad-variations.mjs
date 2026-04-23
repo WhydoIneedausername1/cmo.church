@@ -2,7 +2,7 @@ import { GoogleGenAI } from "./node_modules/@google/genai/dist/node/index.mjs";
 import fs from "fs/promises";
 import path from "path";
 
-const API_KEY = "AIzaSyB8clMcGGDNNKys267v5ZL6zdopaDdB2hY";
+const API_KEY = "AIzaSyCEszVAFHOm57VtphI9QQY5DBM2cK3sgdI";
 const genAI = new GoogleGenAI({ apiKey: API_KEY });
 
 const INPUT_DIR = "input_imgs";

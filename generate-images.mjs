@@ -2,7 +2,7 @@ import { GoogleGenAI } from "./node_modules/@google/genai/dist/node/index.mjs";
 import fs from "fs/promises";
 import path from "path";
 
-const genAI = new GoogleGenAI({ apiKey: "AIzaSyB8clMcGGDNNKys267v5ZL6zdopaDdB2hY" });
+const genAI = new GoogleGenAI({ apiKey: "AIzaSyCEszVAFHOm57VtphI9QQY5DBM2cK3sgdI" });
 
 const baseStyle = `
 Square 1:1 format, minimal modern data visualization style.
