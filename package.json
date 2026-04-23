@@ -1,0 +1,12 @@
+{
+  "name": "cmo-church-image-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate-images.mjs",
+    "generate-ads": "node generate-ad-variations.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
+}

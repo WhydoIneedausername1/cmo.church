@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "/home/user/nano-banana-mcp/node_modules/@google/genai/dist/node/index.mjs";
+import { GoogleGenAI } from "./node_modules/@google/genai/dist/node/index.mjs";
 import fs from "fs/promises";
 import path from "path";
 
