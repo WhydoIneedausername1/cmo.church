@@ -1,153 +1,110 @@
-# Replit build prompt — Booking + Confirmation landing pages
+# Replit build prompt — 5,000 Pastor Leads booking + confirmation pages
 
-Paste everything below the line into Replit Agent as one prompt. It rebuilds the
-two-page funnel (video/booking page → call confirmation page) with the exact
-structure, sections, copy, and interactive behavior of the reference pages,
-using placeholder brand tokens so colors/video/logo can be swapped in later.
+Paste everything below the line into Replit Agent as one prompt. It builds a
+two-page funnel for the 5,000 Pastor Leads offer (a booking/application page →
+a call-confirmation page), matching the section-by-section structure and
+interactive behavior of a proven direct-response funnel, but written in
+CMO.Church's own voice and using this project's existing design system.
+Video isn't shot yet, so every video slot is a clearly-marked placeholder.
 
 ---
 
-Build a two-page marketing funnel: a **Booking page** (`/`) and a **Confirmation
-page** (`/thank-you`). Match the structure, section order, copy, and interactive
-behavior described below exactly. Use plain HTML/CSS/JS (or React if you prefer,
-but keep it a static-friendly build with no backend requirement). Make everything
-mobile-responsive with a breakpoint at 768px.
+Add two new pages to this project: a **Booking page** and a **Confirmation
+page**, for a dedicated 5,000 Pastor Leads ad funnel (separate from the main
+`/5000-leads` site page — this is a leaner, single-CTA version meant for paid
+traffic). Suggested routes: `/5000-leads/apply` and `/5000-leads/thank-you` —
+adjust to match how routing already works in this project.
+
+**Reuse what already exists in this codebase — don't invent a new look.**
+Use the existing Tailwind theme tokens (`bg-primary`, `text-primary`,
+`bg-accent`, `bg-secondary`, `text-neutral`, etc.), the existing button
+component and its variants, the existing heading/body font classes, and the
+existing header/footer components. Do not introduce new hex colors or a new
+font stack. Make both pages mobile-responsive at the same breakpoints the
+rest of the site already uses.
 
 ## Global setup
 
-- Define all colors as CSS custom properties in `:root` so the palette can be
-  swapped in one place later:
-  ```css
-  :root {
-    --brand-primary: #ff8a12;       /* gradient top of main CTA button */
-    --brand-primary-dark: #e87600;  /* gradient bottom / hover of main CTA */
-    --brand-secondary: #e43b2c;     /* gradient top of secondary/red button */
-    --brand-secondary-dark: #cd291a;/* gradient bottom / hover of secondary button */
-    --brand-accent: #5ea975;        /* gradient top of tertiary/green button */
-    --brand-accent-dark: #4e8e62;   /* gradient bottom / hover of tertiary button */
-    --text-dark: #2d2d2d;
-    --text-body: #454545;
-    --highlight-bg: rgba(255, 35, 6, 0.16); /* soft red highlight behind emphasis text */
-    --section-alt-bg: #e7e7e7; /* light gray background used behind step blocks */
-  }
-  ```
-  Buttons use a top-to-bottom gradient from the light shade to the dark shade of
-  their color, rounded corners (~8px), bold white text, and a subtle darken-on-hover.
-- Fonts: use **Poppins** (headlines/step numbers) and **Inter** (body/UI text) from
-  Google Fonts as stand-ins for the original's Proxima Nova / Droid Sans / DM Sans /
-  Open Sans mix — swap for licensed fonts later if desired.
-- Add a global nav bar (sticky top, white background, subtle shadow) with a logo
-  placeholder on the left and this text nav on the right:
-  `Home | Our Process | Success Stories | Blog`
-- Add a global footer (dark or light band, centered, small text) with, in order:
-  - Repeated nav line: `Home | Our Process | Success Stories | Blog`
-  - Legal line: `Privacy Policy | Terms of Service | DMCA | Full Disclosure | *Refund Guarantee` (each a separate placeholder link)
-  - `Copyright © 2026 [Your Company]. All rights reserved.`
-  - Small print: `This website is operated and maintained by [Your Company]. Use of the website is governed by its Terms Of Service and Privacy Policy.`
-- Add a **cookie-consent banner**: fixed to the bottom of the viewport, dismissible
-  with an "x", copy:
-  > By using this site, you agree to the storage of cookies on your device for
-  > enhanced navigation, site analysis, and [Your Company]'s marketing. Data
-  > sharing with social media platforms might occur based on the privacy choices
-  > you make on those platforms. For specifics, see our **Privacy Policy**.
-  Persist the dismissal in `localStorage` so it doesn't reappear once closed.
-- Leave clearly-labeled placeholders (HTML comments) for analytics: Google Tag
-  Manager container snippet, Meta/Facebook Pixel, and Microsoft Clarity — no real
-  IDs needed yet.
+- **Header**: strip it down for a funnel page — logo only (linking to
+  `cmo.church`), no nav links, no "Join our Free Skool" button. Keep it
+  simple so the only real choice on the page is the CTA. Use the existing
+  header component's styling (white background, same logo asset) just with
+  the nav items removed.
+- **Footer**: reuse the site's existing footer as-is (CMO.Church blurb,
+  social icons, Company links, copyright, Privacy Policy / Terms of Service).
+- Leave labeled placeholders (comments) for the tracking already on the main
+  site: GTM, Meta Pixel, and the OpenAI ads pixel — wire them the same way
+  they're wired on the homepage, same IDs, so both pages report to the same
+  containers.
+- No cookie-consent banner is needed unless the rest of the site already
+  shows one — if it does, reuse that component; if not, skip it.
 
-## Page 1 — Booking page (`/`)
+## Page 1 — Booking page (`/5000-leads/apply`)
 
-Section order, top to bottom:
+Top to bottom:
 
 1. **Hero**
-   - H1: `Give Us 7 Days, And We'll Place A Proven Appointment Setter Or Closer Into Your Coaching Or Agency Business.`
-   - Subhead directly below: `If They Don't Book 40 Sales Calls In The First Month - You Don't Pay!*`
-2. **Video block** — a full-width, responsive 16:9 video player container
-   (`padding-top: 56.25%` trick or `aspect-ratio: 16/9`). Use an HTML5 `<video>`
-   tag with a placeholder poster image and a `data-video-src` attribute so a real
-   hosted video URL can be dropped in later. This stands in for the original's
-   Vidalytics embed.
-3. **Primary CTA button**, centered below the video, large, orange gradient
-   (`--brand-primary` → `--brand-primary-dark`), text: `Schedule Demo` (placeholder
-   — swap for your own CTA copy later if desired). Clicking it opens the
-   **Application Modal** described below.
-4. **Application Modal** (hidden by default, opened by the CTA button):
-   - Centered card on desktop (max-width ~1400px, rounded corners, white
-     background, drop shadow); on screens ≤768px it goes **fullscreen** instead
-     of a centered card.
-   - Semi-transparent dark backdrop (`rgba(15,23,42,0.55)`) behind the card;
-     clicking the backdrop or an "x" close button (top-right) closes the modal.
-   - Modal heading (centered, bold, dark red/charcoal text):
-     `Complete The Short Application Below (45-Secs), Then Book Your 100% Free Demo Call`
-   - Below it, a highlighted callout line (soft red background using
-     `--highlight-bg`): `If Our Sales Reps Don't Perform - You Don't Pay!`
-   - Below that, an embedded application form: use an `<iframe>` pointing to a
-     placeholder form URL (e.g. `data-form-src="ABOUT:BLANK"` with a comment
-     `<!-- swap in your form/scheduling embed URL here -->`), full width, ~450–600px
-     tall, no border, rounded bottom corners to match the card.
-   - Show a "Loading…" overlay over the iframe area until it finishes loading.
-   - Lock body scroll while the modal is open; restore it on close.
+   - H1: `Get 5,000 Pastor Leads in 5 Months — Or Get a Refund`
+   - Subhead: `If your organization serves pastors, the problem is almost always the same: not enough pastors coming in the top of your funnel. We fix that — and if we fall short of 5,000 leads, we refund you that percentage of our fee.`
+2. **Video placeholder** — full-width, responsive 16:9 container
+   (`aspect-ratio: 16/9`), styled like a real embed (rounded corners, subtle
+   shadow, a centered play-button graphic over a static background) but
+   wired to an empty `data-video-src=""` attribute with an HTML comment
+   `<!-- video not shot yet — drop hosted video URL here -->`. Don't fake a
+   working video player; it should just visually hold the spot.
+3. **Primary CTA button**, centered below the video, using the existing
+   primary button component: `Book a Call with Our Team` (this is the exact
+   CTA copy already used sitewide — keep it consistent). Clicking it opens
+   the Application Modal below.
+4. **Application Modal** (hidden by default, opened by the CTA):
+   - Centered card on desktop (rounded corners, white background, shadow);
+     full-screen on mobile (≤768px).
+   - Dark semi-transparent backdrop; clicking it or an "x" in the top-right
+     closes the modal. Lock body scroll while open.
+   - Modal heading: `Complete the short application below, then book a call with our team`
+   - A highlighted line under it (soft accent-tinted background, using the
+     existing accent token): `If we fall short of 5,000 pastor leads, we refund that percentage of our fee.`
+   - An embedded form: `<iframe>` with a placeholder `src` and a comment
+     `<!-- swap in your application form / scheduler embed URL here -->`,
+     full width, ~500–600px tall, no border, rounded bottom corners to match
+     the card, with a brief "Loading…" state until it loads.
 
-## Page 2 — Confirmation page (`/thank-you`)
+## Page 2 — Confirmation page (`/5000-leads/thank-you`)
 
-Section order, top to bottom:
+Top to bottom:
 
 1. **Header**
-   - H1: `⚠️ Important. Your Call Is Tentatively Scheduled! ⚠️`
-   - Subhead: `Watch The Video Below And Complete A Few Steps To Confirm Your Appointment`
-2. **Video block**
-   - Small heading above the video: `Watch This 2 Minute Video Below For How To Confirm Your Appointment`
-   - Line below/above the player: `Headphones In And Sound Up For Best Experience`
-   - Same responsive 16:9 placeholder `<video>` component as page 1 (second,
-     independent video slot).
-3. **3-step instructions**, each step as its own block (alternating or stacked,
-   light gray background `--section-alt-bg`, with a placeholder graphic/icon on
-   one side and text on the other):
-   - **Step 1:** `Add Your Appointment To Your Calendar Below 👇`
-     - Below it, a button: `📅 Add The Event To Your Calendar` (styled with
-       `--brand-secondary`/`--brand-secondary-dark`, rounded, white bold text).
-     - Behavior: on click, read `email` and `ics_link` query parameters from the
-       current page URL, and open the `ics_link` value in a new tab
-       (`window.open`). This lets the calendar-file link be personalized per
-       visitor via the URL the booking step redirects to.
-   - **Step 2:** `Please Confirm Your Appointment Via Text (We'll Be Texting You Within 10 Minutes!)`
-   - **Step 3:** `Watch The Video Below To See The Agenda For Our Call, What Our Company Does, And How We Can Help!`
-     (pairs with the video block above, or repeat a second video slot here if you
-     prefer matching the original's layout).
-4. **Callout box** — bordered/tinted notice box:
-   - Heading: `This Google Update Could Affect Your Appointment`
-   - Body: `You may also notice an email from Google titled "Invitation from an unknown sender". This is due to a recent Google Calendar update that has a slight technical bug. If you see this email, please select "Yes" to confirm you're attending — this ensures your appointment stays on your calendar.`
-5. **Testimonials section**
-   - Heading: `Review Client Case Studies`
-   - A responsive grid/carousel of testimonial cards. Each card: a short bolded
-     pull-quote line, the full quote paragraph below it, and the person's name
-     under the quote. Use these verbatim:
-     1. Pull-quote: `"...I was consistently doing $129k–$139k months"` — Full quote: `"When I joined STA, I was stuck at ~$70k/month and thought that was my ceiling. Within a year, I was consistently doing $129k–$139k months and have never dipped below six figures since."` — Name: **O'Neil Luscombe**
-     2. Pull-quote: `"...I had my first $70k month while still in high school"` — Full quote: `"When I joined STA, I was stuck at $10k a month and thought that was my cap. Within 60 days, I had my first $70k month while still in high school, running everything solo."` — Name: **Oliver Khan**
-     3. Pull-quote: `"I went from broke to doing $200k months..."` — Full quote: `"I went from broke to doing $200k months in my fitness coaching business. Before Closers.io, I was stuck with inconsistent sales and a team that lacked structure. Once I got in, I learned how to actually manage a sales team, run daily meetings, and install proven objection-handling frameworks."` — Name: **Matt Priess**
-     4. Pull-quote: `"...Grew from zero to over $4 million in revenue."` — Full quote: `"When I joined Closers.io in January 2023, I had almost no sales calendar. Within weeks, a single piece of content had me booking 5–6 calls a day for months straight, and I quickly found myself overwhelmed but growing."` — Name: **Sarah Gibson**
-     5. Pull-quote: `"...We've scaled from about 1.5 million to a 4 to 5 million..."` — Full quote: `"Our first paid campaign spent 5 to 6 thousand dollars and brought in zero leads. We changed one thing, kept the spend the same, and hit roughly a 16 to 18x return on ad spend within 30 days."` — Name: **Aaron Platt**
-     6. Pull-quote: `"Today we're doing ~$424k/month @ 7–8x ROAS."` — Full quote: `"When we joined Closers.io, we were $850,000 in business debt. Within the first 11 days, we did $92,000 in revenue (on $1,800 ad spend). I took a few hundred calls, fixed my sales process, raised prices..."` — Name: **Zarar Ameen**
-     7. Pull-quote: `"We scaled from just over $1M to nearly $5M a year."` — Full quote: `"When we first joined Closers.io, we were just over $1 million a year and thought of them as 'the sales people.' What we discovered was way more. They didn't just place setters and closers, they helped us build the whole system."` — Name: **Gab and Brian Bosche**
-     8. Pull-quote: `"...we're doing 250 to 300k cash-collected months"` — Full quote: `"When I joined, I was at about 100k a month with one DM setter and me taking every sales call. After tightening my sales with daily call reviews and installing a triage-plus-closer team, we're doing 250 to 300k cash-collected months."` — Name: **Daniel Contreras**
-     9. Pull-quote: `"Ten months later, we're at $250,000 in monthly revenue"` — Full quote: `"When I joined Closers.io, I was terrified to invest in myself. I was doing about $33k cash collected a month and thought that was my ceiling. Ten months later, we're at $250,000 in monthly revenue."` — Name: **Jacob Mclaughlin**
-6. **Earnings disclaimer**
-   - Heading: `IMPORTANT: Earnings and Results Disclaimer`
-   - Body: `*The results you see on this page are not typical; [Your Company] and its clients are professional marketers/operators. Their experiences do not guarantee similar results. Individual results may vary based on your effort, market, and other factors.`
-7. **Logo strip / social proof**
-   - Heading: `Trusted By Brands Like`
-   - An **infinite auto-scrolling marquee** of client logo/testimonial images,
-     scrolling continuously right-to-left, pausing on hover, looping seamlessly
-     (duplicate the logo set back-to-back in the DOM so the scroll never shows a
-     gap). Use placeholder logo images.
+   - H1: `⚠️ Your Call Is Scheduled — A Few Quick Steps to Lock It In`
+   - Subhead: `Watch the short video below and complete these steps to confirm your appointment.`
+2. **Video placeholder**
+   - Small line above it: `Watch this short video for how to confirm your appointment`
+   - Same 16:9 placeholder component as page 1, independent slot.
+3. **Steps** (3 short blocks, alternating or stacked, on the existing
+   `bg-secondary` section background):
+   - **Step 1 — Add it to your calendar.** Headline: `Add your appointment to your calendar below`. Below it, a button `📅 Add to Calendar` (existing secondary/accent button style). Behavior: on click, read `email` and `ics_link` from the current page's URL query params and open `ics_link` in a new tab. This is the one piece of real interactive logic on the page — keep it exactly as described.
+   - **Step 2 — Confirm by text.** Headline: `We'll text you within 10 minutes to confirm your appointment — reply to lock it in.` *(Note: only include this step if CMO.Church actually follows up by text; otherwise cut it or swap for however confirmation really works — e.g. "We'll follow up by email to confirm.")*
+   - **Step 3 — Know what to expect.** Headline: `Watch the video below to see what we'll cover on the call and how we can help you get to 5,000 pastor leads.` (pairs with the video slot above, or add a second placeholder video slot here if you'd rather match the original 3-video layout.)
+4. **Callout box** (bordered/tinted notice):
+   - Heading: `A quick heads-up about your calendar invite`
+   - Body: `You may see an email from Google titled "Invitation from an unknown sender." That's a known Google Calendar bug, not spam — select "Yes" to confirm attendance and it'll stay on your calendar.`
+5. **Proof section** — reuse what's already on the homepage rather than inventing new testimonials (CMO.Church doesn't have the volume of client quotes the reference funnel had, so this section stays much shorter):
+   - Heading: `What this looks like in practice`
+   - The same 3 stat tiles used on the homepage: `214% — Email List Growth` (grew a leadership podcast from 70K to 220K subscribers), `8x — YouTube Channel Growth`, `$1.50 — Cost Per Lead`.
+   - Below that, heading `Trusted By Leading Organizations` with the same logo row already used on the homepage (Carey Nieuwhof, Leadership Pathway, Art of Leadership, Thea Brook) — static grid, not a scrolling marquee, matching how it's already built on the homepage.
+   - A short founder line, reusing the homepage bio: `Dillon Smith has helped church-facing organizations grow email lists from 70K to 220K+ subscribers, lower cost per lead, and 8x YouTube channels — working with organizations like Life.Church and Carey Nieuwhof.`
+6. **Fine print** (small, muted text): `Results depend on your lead magnet, audience, and ad spend. Guarantee terms are covered on your call.`
 
 ## Notes for the build
 
-- Keep every piece of copy above **verbatim** — that's intentional per the current
-  brand voice; colors, fonts, video sources, and logos are the only things meant
-  to be swapped later via the CSS variables / placeholder attributes.
-- Both pages share the same nav, footer, and cookie-consent components — build
-  them once and reuse.
-- The video containers, the modal's iframe container, and the "Add To Calendar"
-  button's `ics_link`/`email` query-param logic are the three pieces of real
-  interactive functionality to get right; everything else is layout and copy.
+- Keep the copy above close to verbatim — it's deliberately short and plain
+  (pulled from CMO.Church's own site language), not written to sound
+  "salesy" or AI-generated. Don't embellish it further; the user will edit
+  it by hand afterward.
+- Both pages should feel like they belong to cmo.church — same fonts,
+  same color tokens, same button/card components — just with a stripped
+  header and a single-minded CTA path, the way a dedicated ad-funnel page
+  should.
+- The three pieces of real functionality to get right: the video containers
+  (placeholders now, swappable later), the CTA → modal → iframe form flow,
+  and the "Add to Calendar" button's `ics_link`/`email` query-param logic.
+  Everything else is layout and copy.
