@@ -1,6 +1,6 @@
 # Brand DNA — CMO.Church (free local)
 
-> Status: `DRAFT`
+> Status: `CONFIRMED 2026-09-05`
 > Owner: Nathan Singleton (session user)
 > Sources: https://cmo.church, https://cmo.church/5000-leads, https://cmo.church/about, https://cmo.church/privacy-policy, https://cmo.church/terms-of-service, site CSS (`/assets/index-CR2A7IRm.css`), `favicon.jpg`
 > Path: **free local only** — no generative image/video APIs
@@ -139,14 +139,15 @@ Never ship creatives that look like (unless brand-true and confirmed):
 
 ## 10. Human confirmation
 
-- [ ] Colors verified
-- [ ] Type / logo verified
-- [ ] Photography direction approved (stock/user + HTML — no generative API)
-- [ ] Banned + legal approved
-- [ ] Confirmed by: ________ Date: ________
+- [x] Colors verified
+- [x] Type / logo verified (icon mark only; horizontal lockup remains TBD)
+- [x] Photography direction approved (stock/user + HTML — no generative API)
+- [x] Banned + legal approved
+- [x] Confirmed by: Nathan Singleton Date: 2026-09-05
 
 ## Changelog
 
 | Date | Change |
 |------|--------|
 | 2026-09-05 | Initial draft — built from live `cmo.church` site CSS, `/5000-leads` offer page, `/about`, `/privacy-policy`, `/terms-of-service`. Logo horizontal lockup and Carey Nieuwhof logo image both unreachable at production URLs (dev-only paths) — marked TBD. |
+| 2026-09-05 | Confirmed by Nathan Singleton. Proceeding to ad-free-concept-pipeline for the 5,000-leads offer. |
