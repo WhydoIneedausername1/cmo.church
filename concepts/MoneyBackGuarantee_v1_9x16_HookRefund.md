@@ -30,10 +30,10 @@ Secondary: **Proof-heavy** — backs the promise with the $3 cost-per-lead stat 
 
 - Eyebrow: "For organizations that serve pastors"
 - Headline: "Get 5,000 Pastor Leads in 5 Months — Or Get a Refund."
-- Body (≤120 chars): "We build your 10/10 lead magnet, run the Meta ads, and get your cost per lead under $3."
+- Body (≤120 chars): "Most businesses struggle to connect with pastors. We build you a 10/10 lead magnet that gets you pastor leads."
 - CTA: "Book a Call with Our Team"
 - Legal / qualifier: "Refund is proportional to any shortfall below 5,000 leads."
-- Price / offer chip: "Cost per lead: under $3"
+- Price / offer chip: "Cost per lead: $1 – $3.50"
 
 JSON for QA text-diff:
 
@@ -41,10 +41,10 @@ JSON for QA text-diff:
 {
   "name": "MoneyBackGuarantee_v1_9x16_HookRefund",
   "headline": "Get 5,000 Pastor Leads in 5 Months — Or Get a Refund.",
-  "body": "We build your 10/10 lead magnet, run the Meta ads, and get your cost per lead under $3.",
+  "body": "Most businesses struggle to connect with pastors. We build you a 10/10 lead magnet that gets you pastor leads.",
   "cta": "Book a Call with Our Team",
   "legal": "Refund is proportional to any shortfall below 5,000 leads.",
-  "price": "Cost per lead: under $3"
+  "price": "Cost per lead: $1 – $3.50"
 }
 ```
 
@@ -59,7 +59,7 @@ JSON for QA text-diff:
 
 | Asset | Source | Status |
 |-------|--------|--------|
-| "Cost per lead under $3" stat | `/5000-leads` page copy (brand's own published claim) | have |
+| "Cost per lead $1 – $3.50" stat | User-supplied revision (2026-09-05); differs from the live `/5000-leads` page, which states "below $3" — **flag: reconcile site copy or confirm which figure is current** | have (needs reconciliation) |
 | "5,000 leads or refund" guarantee | `/5000-leads` page copy | have |
 | Client result stat (100K→700K email list) | `/5000-leads` + `/unity` page copy | have (use as secondary beat only, no client name/logo — none supplied) |
 
