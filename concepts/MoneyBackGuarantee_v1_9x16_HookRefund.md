@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | Name | `MoneyBackGuarantee_v1_9x16_HookRefund` |
-| Status | `DRAFT` |
+| Status | `APPROVED 2026-09-05` |
 | Platform | Meta (Reels placement) |
 | Funnel stage | Cold |
 | Brand DNA | `brand/brand-dna.md` — CONFIRMED 2026-09-05 |
@@ -88,5 +88,5 @@ JSON for QA text-diff:
 
 ## Approval
 
-- [ ] Concept approved by: ________ Date: ________
-- Notes: Demo brief — customer-language mining was skipped per user direction (see `concepts/variety-matrix-fill.md`); hooks 1–3 sourced from user-specified themes (cost-per-lead <$3, 5,000-leads-or-refund, pastor-specialist positioning) plus the brand's own on-site copy.
+- [x] Concept approved by: Nathan Singleton Date: 2026-09-05
+- Notes: Demo brief — customer-language mining was skipped per user direction (see `concepts/variety-matrix-fill.md`); hooks 1–3 sourced from user-specified themes (cost-per-lead <$3, 5,000-leads-or-refund, pastor-specialist positioning) plus the brand's own on-site copy. Proceeding to `ad-free-video` storyboard.
