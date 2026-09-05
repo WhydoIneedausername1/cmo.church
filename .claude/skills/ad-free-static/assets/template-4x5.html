@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1350" />
+  <title>Ad 4:5 — {{CONCEPT_NAME}}</title>
+  <style>
+    :root {
+      --brand-bg: #0B0B0C;
+      --brand-surface: #161618;
+      --brand-text: #F5F5F4;
+      --brand-muted: #A8A29E;
+      --brand-accent: #E7E5E4;
+      --brand-cta: #F5F5F4;
+      --brand-cta-text: #0B0B0C;
+      --font-display: Georgia, "Times New Roman", serif;
+      --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+      --pad: 64px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1080px; height: 1350px; overflow: hidden;
+      background: var(--brand-bg); color: var(--brand-text);
+      font-family: var(--font-body);
+    }
+    .stage { position: relative; width: 1080px; height: 1350px; }
+    .photo {
+      position: absolute; top: 0; left: 0; right: 0; height: 78%;
+      background: center/cover no-repeat url("{{PHOTO_LAYER_URL}}");
+    }
+    .panel {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+      background: var(--brand-bg);
+      padding: 40px var(--pad) var(--pad);
+      display: flex; flex-direction: column; justify-content: flex-end; gap: 18px;
+    }
+    .logo { position: absolute; top: var(--pad); left: var(--pad); height: 48px; width: auto; z-index: 2; }
+    .eyebrow { font-size: 22px; color: var(--brand-muted); }
+    .headline {
+      font-family: var(--font-display); font-size: 56px; line-height: 1.06;
+      font-weight: 600; max-width: 18ch;
+    }
+    .body { font-size: 26px; line-height: 1.35; color: var(--brand-muted); max-width: 34ch; }
+    .row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .price { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 60px; padding: 0 32px; border-radius: 999px;
+      background: var(--brand-cta); color: var(--brand-cta-text);
+      font-size: 24px; font-weight: 650;
+    }
+    .legal { font-size: 15px; line-height: 1.3; color: var(--brand-muted); }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="photo" role="img" aria-label="User or stock photo layer"></div>
+    <img class="logo" src="{{LOGO_URL}}" alt="{{BRAND_NAME}}" />
+    <div class="panel">
+      <div class="eyebrow">{{EYEBROW}}</div>
+      <h1 class="headline">{{HEADLINE}}</h1>
+      <p class="body">{{BODY}}</p>
+      <div class="row">
+        <span class="price">{{PRICE}}</span>
+        <span class="cta">{{CTA}}</span>
+      </div>
+      <p class="legal">{{LEGAL}}</p>
+    </div>
+  </div>
+</body>
+</html>
