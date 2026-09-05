@@ -42,4 +42,20 @@
 
 ## Approval
 
-- [ ] Storyboard approved by: ________ Date: ________
+- [x] Storyboard approved by: Nathan Singleton Date: 2026-09-05 (with beat revisions: tension/fix copy, $1–$3 cost-per-lead range, "and we help you close them" added to handoff; beats extended beyond 10–15s to fit VO)
+
+## Render (v1)
+
+- **Output:** `video/MoneyBackGuarantee_v1/MoneyBackGuarantee_v1.mp4` — 1080×1920, H.264/AAC, 23.1s, 1.7MB
+- **Tooling:** HyperFrames CLI v0.8.29, local Chrome Headless Shell render, local `ffmpeg`/`ffprobe` (static builds installed this session), local Kokoro-82M TTS (`am_michael` voice) for all VO — no cloud/paid services used
+- **Scene timings actually rendered** (adjusted to real VO duration, per beat):
+  - 0.0–4.5s Hook
+  - 4.5–7.7s Tension
+  - 7.7–12.5s Fix
+  - 12.5–15.5s Stat ($1 → $3 count-up)
+  - 15.5–19.1s Handoff
+  - 19.1–23.1s CTA end card
+- **Checks:** `hyperframes check` passed — 0 lint errors (1 non-blocking density warning), 0 runtime errors, 0 layout issues, 8/8 WCAG AA contrast checks passed
+- **Still open:** no music bed (VO-only render); horizontal logo lockup still unavailable, end card uses icon mark + type-set wordmark
+- **Next:** run through `ad-free-qa` before this ships to Meta
+

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>MoneyBackGuarantee_v1_9x16_HookRefund</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #042f2f;
+      }
+      body {
+        font-family: Roboto, sans-serif;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 90px;
+        text-align: center;
+      }
+      .bg-teal {
+        background: #042f2f;
+      }
+      .bg-white {
+        background: #ffffff;
+      }
+      .bg-mint {
+        background: #d0f6ec;
+      }
+      .eyebrow {
+        font-family: Roboto, sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #d0f6ec;
+        margin-bottom: 36px;
+      }
+      .headline {
+        font-family: Inter, sans-serif;
+        font-weight: 900;
+        font-size: 76px;
+        line-height: 1.12;
+        color: #ffffff;
+      }
+      .headline.dark {
+        color: #042f2f;
+      }
+      .icon-wrap {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 48px;
+      }
+      .icon-wrap svg {
+        width: 76px;
+        height: 76px;
+      }
+      .stat-label {
+        font-family: Roboto, sans-serif;
+        font-weight: 700;
+        font-size: 34px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #d0f6ec;
+        margin-top: 28px;
+      }
+      .stat-number {
+        font-family: Inter, sans-serif;
+        font-weight: 900;
+        font-size: 200px;
+        line-height: 1;
+        color: #ffffff;
+        position: relative;
+      }
+      .stat-underline {
+        width: 0;
+        height: 12px;
+        background: #358d72;
+        border-radius: 6px;
+        margin-top: 24px;
+      }
+      .end-card-logo {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 32px;
+        overflow: hidden;
+      }
+      .end-card-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .wordmark {
+        font-family: Inter, sans-serif;
+        font-weight: 900;
+        font-size: 56px;
+        color: #ffffff;
+        margin-bottom: 56px;
+      }
+      .cta-button {
+        background: #ffffff;
+        color: #042f2f;
+        font-family: Inter, sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        padding: 28px 56px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+      }
+      .legal {
+        font-family: Roboto, sans-serif;
+        font-weight: 400;
+        font-size: 26px;
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 780px;
+        line-height: 1.4;
+      }
+      .handoff-headline {
+        font-family: Inter, sans-serif;
+        font-weight: 900;
+        font-size: 68px;
+        line-height: 1.15;
+        color: #042f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="23.1"
+      data-width="1080"
+      data-height="1920"
+      data-fps="30"
+    >
+      <!-- Scene 0: Hook (0 - 4.5s) -->
+      <section id="s0-hook" class="clip bg-teal" data-start="0" data-duration="4.5" data-track-index="0">
+        <div id="s0-eyebrow" class="eyebrow">For Organizations That Serve Pastors</div>
+        <div id="s0-headline" class="headline">Get 5,000 Pastor Leads in 5 Months —<br />Or Get a Refund.</div>
+      </section>
+
+      <!-- Scene 1: Tension (4.5 - 7.7s) -->
+      <section id="s1-tension" class="clip bg-white" data-start="4.5" data-duration="3.2" data-track-index="0">
+        <div id="s1-icon" class="icon-wrap" style="background: #fee2e2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m15 9-6 6"></path>
+            <path d="m9 9 6 6"></path>
+          </svg>
+        </div>
+        <div id="s1-headline" class="headline dark">Most businesses struggle to connect with pastors.</div>
+      </section>
+
+      <!-- Scene 2: Fix (7.7 - 12.5s) -->
+      <section id="s2-fix" class="clip bg-mint" data-start="7.7" data-duration="4.8" data-track-index="0">
+        <div id="s2-icon" class="icon-wrap" style="background: rgba(53, 141, 114, 0.15)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#358d72" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+            <path d="m9 11 3 3L22 4"></path>
+          </svg>
+        </div>
+        <div id="s2-headline" class="handoff-headline">We build you a 10/10 lead magnet that gets you pastor leads.</div>
+      </section>
+
+      <!-- Scene 3: Stat (12.5 - 15.5s) -->
+      <section id="s3-stat" class="clip bg-teal" data-start="12.5" data-duration="3.0" data-track-index="0">
+        <div id="s3-number" class="stat-number">$1</div>
+        <div id="s3-underline" class="stat-underline"></div>
+        <div id="s3-label" class="stat-label">Cost Per Lead</div>
+      </section>
+
+      <!-- Scene 4: Handoff (15.5 - 19.1s) -->
+      <section id="s4-handoff" class="clip bg-white" data-start="15.5" data-duration="3.6" data-track-index="0">
+        <div id="s4-icon" class="icon-wrap" style="background: rgba(4, 47, 47, 0.08)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#042f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div id="s4-headline" class="handoff-headline">Leads go straight to your team — and we help you close them.</div>
+      </section>
+
+      <!-- Scene 5: CTA end card (19.1 - 23.1s) -->
+      <section id="s5-cta" class="clip bg-teal" data-start="19.1" data-duration="4.0" data-track-index="0">
+        <div id="s5-logo" class="end-card-logo">
+          <img src="assets/logo-icon.jpg" alt="CMO.Church" />
+        </div>
+        <div id="s5-wordmark" class="wordmark">CMO.Church</div>
+        <div id="s5-cta-button" class="cta-button">Book a Call with Our Team</div>
+        <div id="s5-legal" class="legal">Refund is proportional to any shortfall below 5,000 leads.</div>
+      </section>
+
+      <!-- Voiceover (Kokoro local TTS, am_michael) -->
+      <audio id="vo-0" src="assets/vo/beat1.wav" data-start="0" data-duration="4.181" data-track-index="10"></audio>
+      <audio id="vo-1" src="assets/vo/beat2a.wav" data-start="4.5" data-duration="2.88" data-track-index="10"></audio>
+      <audio id="vo-2" src="assets/vo/beat2b.wav" data-start="7.7" data-duration="4.459" data-track-index="10"></audio>
+      <audio id="vo-3" src="assets/vo/beat3.wav" data-start="12.5" data-duration="2.603" data-track-index="10"></audio>
+      <audio id="vo-4" src="assets/vo/beat4.wav" data-start="15.5" data-duration="3.307" data-track-index="10"></audio>
+      <audio id="vo-5" src="assets/vo/beat5.wav" data-start="19.1" data-duration="1.856" data-track-index="10"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 0 — Hook
+      tl.from("#s0-eyebrow", { opacity: 0, y: 20, duration: 0.4, ease: "power2.out" }, 0);
+      tl.from("#s0-headline", { opacity: 0, y: 30, duration: 0.5, ease: "power3.out" }, 0.15);
+
+      // Scene 1 — Tension
+      tl.from("#s1-icon", { opacity: 0, scale: 0.6, duration: 0.4, ease: "back.out(2)" }, 4.5);
+      tl.from("#s1-headline", { opacity: 0, y: 24, duration: 0.4, ease: "power2.out" }, 4.7);
+
+      // Scene 2 — Fix
+      tl.from("#s2-icon", { opacity: 0, scale: 0.6, duration: 0.4, ease: "back.out(2)" }, 7.7);
+      tl.from("#s2-headline", { opacity: 0, y: 24, duration: 0.4, ease: "power2.out" }, 7.9);
+
+      // Scene 3 — Stat count-up $1 -> $3
+      tl.from("#s3-number", { opacity: 0, y: 20, duration: 0.3, ease: "power2.out" }, 12.5);
+      tl.from("#s3-label", { opacity: 0, duration: 0.3 }, 12.6);
+      tl.to(
+        "#s3-number",
+        {
+          duration: 1.2,
+          ease: "power1.inOut",
+          onUpdate: function () {
+            const p = this.progress();
+            const val = 1 + p * 2; // $1 -> $3
+            document.getElementById("s3-number").textContent = "$" + val.toFixed(2).replace(/\.00$/, "");
+          },
+        },
+        12.9
+      );
+      tl.to("#s3-underline", { width: "320px", duration: 0.5, ease: "power2.out" }, 13.9);
+
+      // Scene 4 — Handoff
+      tl.from("#s4-icon", { opacity: 0, scale: 0.6, duration: 0.4, ease: "back.out(2)" }, 15.5);
+      tl.from("#s4-headline", { opacity: 0, y: 24, duration: 0.4, ease: "power2.out" }, 15.7);
+
+      // Scene 5 — CTA end card
+      tl.from("#s5-logo", { opacity: 0, scale: 0.7, duration: 0.4, ease: "back.out(2)" }, 19.1);
+      tl.from("#s5-wordmark", { opacity: 0, y: 16, duration: 0.4, ease: "power2.out" }, 19.35);
+      tl.from("#s5-cta-button", { opacity: 0, y: 16, duration: 0.4, ease: "power2.out" }, 19.6);
+      tl.from("#s5-legal", { opacity: 0, duration: 0.4 }, 19.9);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
