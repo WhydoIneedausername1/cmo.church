@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01a_headline_plain",
+    "fmt": "Strong headline on a plain background"
+  },
+  {
+    "id": "01b_headline_plain",
+    "fmt": "Strong headline on a plain background"
+  },
+  {
+    "id": "02a_founder_headline",
+    "fmt": "Strong headline with the founder"
+  },
+  {
+    "id": "02b_founder_headline",
+    "fmt": "Strong headline with the founder"
+  },
+  {
+    "id": "03a_show_lead_magnet",
+    "fmt": "Show the lead magnet"
+  },
+  {
+    "id": "03b_show_lead_magnet",
+    "fmt": "Show the lead magnet"
+  },
+  {
+    "id": "04a_quote_result_TEMPLATE",
+    "fmt": "Reader quote with a result (template)"
+  },
+  {
+    "id": "04b_quote_result_TEMPLATE",
+    "fmt": "Reader quote with a result (template)"
+  },
+  {
+    "id": "05a_social_proof_TEMPLATE",
+    "fmt": "Social proof (template)"
+  },
+  {
+    "id": "05b_social_proof_TEMPLATE",
+    "fmt": "Social proof (template)"
+  },
+  {
+    "id": "06a_pain_headline",
+    "fmt": "Specific pain headline"
+  },
+  {
+    "id": "06b_pain_headline",
+    "fmt": "Specific pain headline"
+  },
+  {
+    "id": "07a_checklist",
+    "fmt": "Checklist: steal this"
+  },
+  {
+    "id": "07b_checklist",
+    "fmt": "Checklist: steal this"
+  },
+  {
+    "id": "08a_before_after",
+    "fmt": "Before and after"
+  },
+  {
+    "id": "08b_before_after",
+    "fmt": "Before and after"
+  },
+  {
+    "id": "09a_notes_app",
+    "fmt": "Notes app or handwritten note"
+  },
+  {
+    "id": "09b_handwritten_note",
+    "fmt": "Notes app or handwritten note"
+  },
+  {
+    "id": "10a_letter",
+    "fmt": "Founder's letter (draft for John's approval)"
+  },
+  {
+    "id": "10b_letter",
+    "fmt": "Founder's letter (draft for team approval)"
+  },
+  {
+    "id": "11a_objection",
+    "fmt": "Objection card"
+  },
+  {
+    "id": "11b_objection",
+    "fmt": "Objection card"
+  },
+  {
+    "id": "12a_one_stat",
+    "fmt": "One stat"
+  },
+  {
+    "id": "12b_one_stat",
+    "fmt": "One stat"
+  },
+  {
+    "id": "13a_boosted_post",
+    "fmt": "Boosted founder post"
+  },
+  {
+    "id": "13b_boosted_post",
+    "fmt": "Boosted founder post (draft for John's approval)"
+  }
+]
